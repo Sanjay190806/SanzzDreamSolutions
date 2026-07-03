@@ -872,7 +872,7 @@ Please confirm the final quote.`;
 
         <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-start">
           {/* Controls Box */}
-          <Reveal className="bg-white/5 border border-white/10 rounded-[2rem] p-8 shadow-2xl backdrop-blur-md">
+          <Reveal className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-2xl backdrop-blur-md">
             <h3 className="font-syne text-xl font-bold text-white mb-6">1. Configure Requirements</h3>
             <div className="grid gap-6">
               {/* Service Select */}
@@ -965,7 +965,7 @@ Please confirm the final quote.`;
           </Reveal>
 
           {/* Estimates Card */}
-          <Reveal className="bg-white/5 border border-white/10 rounded-[2rem] p-8 shadow-2xl backdrop-blur-md lg:sticky lg:top-28">
+          <Reveal className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-2xl backdrop-blur-md lg:sticky lg:top-28">
             <h3 className="font-syne text-xl font-bold text-white mb-6">2. Quote Summary</h3>
 
             {/* Price Output */}
@@ -1163,7 +1163,7 @@ export const PaymentSection = () => {
         </div>
 
         {/* Payment Confirmation Widget */}
-        <Reveal className="mt-16 bg-white/5 border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl backdrop-blur-md">
+        <Reveal className="mt-16 bg-white/5 border border-white/10 rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-12 shadow-2xl backdrop-blur-md">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] items-center">
             <div>
               <h3 className="font-syne text-2xl font-bold text-white">Submit Payment Confirmation</h3>
@@ -1333,7 +1333,7 @@ export const Founder = () => (
       </Reveal>
 
       {/* Tally Intake Improvement Notes */}
-      <Reveal className="mt-16 bg-white/5 border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl backdrop-blur-md">
+      <Reveal className="mt-16 bg-white/5 border border-white/10 rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-12 shadow-2xl backdrop-blur-md">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-center">
           <div>
             <h3 className="font-syne text-2xl font-bold text-white">For a Faster Quote, Include These Details</h3>
@@ -1354,7 +1354,7 @@ export const Founder = () => (
             <span className="block font-syne text-xs font-bold uppercase tracking-wider text-brandGold mb-4">
               Submission Checklist
             </span>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-white/65">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-xs text-white/65">
               {tallyIntakeChecklist.map(item => (
                 <li key={item} className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#16a34a] flex-shrink-0" />

@@ -734,16 +734,15 @@ section {
 }
 
 .hero-stats {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
   border: 1px solid var(--border-color);
-  border-radius: 1.25rem;
+  border-radius: 1.5rem;
   background: var(--hero-stats-bg);
-  padding: 1.2rem 1.5rem;
+  padding: 1.25rem;
   margin-bottom: 2.5rem;
-  width: fit-content;
+  width: 100%;
   backdrop-filter: blur(10px);
   transition: border-color 0.5s ease, background-color 0.5s ease;
 }
@@ -752,7 +751,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1.5rem;
+  text-align: center;
+  padding: 0.5rem;
 }
 
 .stat-number {
@@ -773,11 +773,28 @@ section {
 }
 
 .hero-stat-divider {
-  width: 1px;
-  height: 2.5rem;
-  background: var(--border-color);
-  flex-shrink: 0;
-  transition: background-color 0.5s ease;
+  display: none; /* Hide on mobile by default */
+}
+
+@media (min-width: 640px) {
+  .hero-stats {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    width: fit-content;
+    padding: 1.2rem 1.5rem;
+  }
+  .hero-stat-divider {
+    display: block;
+    width: 1px;
+    height: 2.5rem;
+    background: var(--border-color);
+    flex-shrink: 0;
+    transition: background-color 0.5s ease;
+  }
+  .stat-counter-block {
+    padding: 0 1.5rem;
+  }
 }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
