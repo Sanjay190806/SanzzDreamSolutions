@@ -212,6 +212,46 @@ export const services = [
     ],
     cta: "Request Document",
     whatsapp: "Hi SDS, I need Word document formatting. My requirement is:"
+  },
+  {
+    id: "graphic",
+    icon: "photo",
+    title: "Graphic Design",
+    startingPrice: "₹299+",
+    delivery: "1-3 days depending on design complexity.",
+    who: "Startups, local businesses, creators, personal brands, and college clubs.",
+    gets: "Polished logos, posters, flyers, banners, social media creatives, and brand kits.",
+    revisions: ["Basic: 1 revision", "Standard: 2 revisions", "Premium: 3 revisions"],
+    useCases: [
+      "Logo design",
+      "Poster & flyer design",
+      "Social media posts",
+      "Brand identity kits",
+      "Business cards",
+      "Banner design"
+    ],
+    cta: "Request Graphic Design",
+    whatsapp: "Hi SDS, I need a graphic design service. My requirement is:"
+  },
+  {
+    id: "writing",
+    icon: "document",
+    title: "Content Writing",
+    startingPrice: "₹199+",
+    delivery: "1-3 days for articles, copy, and reviews.",
+    who: "Bloggers, small businesses, startups, job seekers, and creators.",
+    gets: "SEO-friendly blog posts, website copywriting, social media captions, ad copy, and resumes.",
+    revisions: ["Basic: 1 revision", "Standard: 2 revisions", "Premium: 3 revisions"],
+    useCases: [
+      "SEO articles & blogs",
+      "Website copy",
+      "Resume writing",
+      "Social media captions",
+      "Ad copywriting",
+      "Technical reviews"
+    ],
+    cta: "Request Content Writing",
+    whatsapp: "Hi SDS, I need a content writing service. My requirement is:"
   }
 ];
 
@@ -658,6 +698,67 @@ export const quoteCalculatorServices = [
         label: "PDF export-ready formatting",
         type: "toggle",
         add: [199, 499]
+      }
+    ]
+  },
+  {
+    id: "graphic",
+    name: "Graphic Design",
+    baseRange: [299, 799],
+    delivery: "1–3 days",
+    revisions: "1–3 revisions based on package",
+    options: [
+      {
+        id: "type",
+        label: "Design Type",
+        type: "select",
+        choices: [
+          { label: "Poster / Banner Design", value: "poster", add: [0, 0] },
+          { label: "Social Media Post Creator", value: "social", add: [100, 300] },
+          { label: "Official Logo Design", value: "logo", add: [500, 1500] },
+          { label: "Brand Identity Kit", value: "kit", add: [1500, 4000] }
+        ]
+      },
+      {
+        id: "source",
+        label: "Editable vector files needed (.ai/.psd)",
+        type: "toggle",
+        add: [200, 500]
+      }
+    ]
+  },
+  {
+    id: "writing",
+    name: "Content Writing",
+    baseRange: [199, 499],
+    delivery: "1–3 days",
+    revisions: "1–3 revisions based on package",
+    options: [
+      {
+        id: "words",
+        label: "Expected word count",
+        type: "select",
+        choices: [
+          { label: "Under 500 words", value: "short", add: [0, 0] },
+          { label: "500–1000 words", value: "medium", add: [200, 500] },
+          { label: "1000–2000 words", value: "long", add: [500, 1200] }
+        ]
+      },
+      {
+        id: "contenttype",
+        label: "Content Type",
+        type: "select",
+        choices: [
+          { label: "Blog / SEO Article", value: "blog", add: [0, 0] },
+          { label: "Ad Copy / Copywriting", value: "ad", add: [200, 400] },
+          { label: "Technical Review / Academic", value: "technical", add: [300, 800] }
+        ]
+      },
+      {
+        id: "seo",
+        label: "Keyword search & SEO optimization",
+        type: "toggle",
+        add: [150, 400]
       }
     ]
   }

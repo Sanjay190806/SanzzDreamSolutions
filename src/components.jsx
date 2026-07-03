@@ -1508,8 +1508,7 @@ export const RateCardModal = ({ isOpen, onClose }) => {
   const rateCardPages = [
     { id: 1, title: "Terms & Conditions", src: "/rate-card-1.png" },
     { id: 2, title: "Pillar 1: Data Intelligence & Analytics", src: "/rate-card-2.png" },
-    { id: 3, title: "Pillar 3: Digital Presence & Creative Studio", src: "/rate-card-3.png" },
-    { id: 4, title: "Pillar 2: IoT & Embedded Engineering", src: "/rate-card-4.png" }
+    { id: 3, title: "Pillar 3: Digital Presence & Creative Studio", src: "/rate-card-3.png" }
   ];
 
   if (!isOpen) return null;
