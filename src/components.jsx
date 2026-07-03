@@ -634,7 +634,13 @@ export const DemoWorkShowcase = () => (
         {demoWorkItems.map((item, index) => (
           <Reveal key={item.id} className={index === 0 ? "portfolio-featured" : ""}>
             <article className="work-card">
-              <DemoWorkVisual type={item.visual} />
+              {item.image ? (
+                <div className="demo-preview-canvas overflow-hidden flex items-center justify-center bg-[#111318] border-b border-white/10 relative">
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                </div>
+              ) : (
+                <DemoWorkVisual type={item.visual} />
+              )}
               <div className="work-card-copy">
                 <div className="flex flex-wrap gap-2 items-center justify-between">
                   <span className="badge-demo">{item.type}</span>
@@ -646,7 +652,7 @@ export const DemoWorkShowcase = () => (
                 <p className="mt-2 font-dmsans text-sm text-white/60 leading-relaxed">
                   {item.description}
                 </p>
-                <div className="mt-5 pt-4 border-t border-white/10">
+                <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between flex-wrap gap-3">
                   <WhatsAppLink
                     message={`Hi SDS, I saw your ${item.title}. I would like to request similar work. My requirement details are:`}
                     className="inline-flex items-center gap-2 font-syne text-xs font-bold uppercase tracking-wider text-[#38bdf8] hover:text-white"
@@ -654,6 +660,17 @@ export const DemoWorkShowcase = () => (
                     Request Similar Work
                     <SvgIcon name="arrow" className="h-3 w-3" />
                   </WhatsAppLink>
+                  {item.projectUrl && (
+                    <a
+                      href={item.projectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-syne text-xs font-bold uppercase tracking-wider text-white/50 hover:text-white transition-colors"
+                    >
+                      Live Link
+                      <SvgIcon name="arrow" className="h-3 w-3 -rotate-45" />
+                    </a>
+                  )}
                 </div>
               </div>
             </article>
