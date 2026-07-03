@@ -21,14 +21,12 @@ import {
   FAQ,
   FinalCTA,
   StickyWhatsApp,
-  Footer,
-  RateCardModal
+  Footer
 } from "./components.jsx";
 
 const App = () => {
   const [entered, setEntered] = useState(() => sessionStorage.getItem("sds_entered") === "true");
   const [exitingLaunch, setExitingLaunch] = useState(false);
-  const [isRateCardOpen, setIsRateCardOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("sds_theme") || "dark";
   });
@@ -51,20 +49,17 @@ const App = () => {
     }, 520);
   };
 
-  const openRateCard = () => setIsRateCardOpen(true);
-  const closeRateCard = () => setIsRateCardOpen(false);
-
   return (
     <>
       {!entered && <LaunchScreen onEnter={enterSite} exiting={exitingLaunch} />}
       <div className={`site-shell ${entered ? "site-visible" : "site-hidden"}`}>
-        <Navbar theme={theme} toggleTheme={toggleTheme} onOpenRateCard={openRateCard} />
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
         <main>
-          <Hero onOpenRateCard={openRateCard} />
+          <Hero />
           <QuickActionStrip />
           <DemoWorkShowcase />
           <Services />
-          <QuoteCalculator onOpenRateCard={openRateCard} />
+          <QuoteCalculator />
           <Packages />
           <Process />
           <RevisionPolicy />
@@ -78,8 +73,7 @@ const App = () => {
           <FinalCTA />
         </main>
         <StickyWhatsApp />
-        <Footer onOpenRateCard={openRateCard} />
-        <RateCardModal isOpen={isRateCardOpen} onClose={closeRateCard} />
+        <Footer />
       </div>
     </>
   );
