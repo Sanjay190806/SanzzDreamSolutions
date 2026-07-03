@@ -2,7 +2,7 @@ export const businessConfig = {
   brandName: "SanzzDream Solutions",
   shortName: "SDS",
   tagline: "Engineering Your Digital Vision.",
-  tallyUrl: "https://tally.so/r/pbyL18",
+  tallyUrl: "https://tally.so/r/ZjEalB",
   paymentConfirmationUrl: "#",
   email: "sanjaykaruppusamy1908@gmail.com",
   emailUrl: "mailto:sanjaykaruppusamy1908@gmail.com",
