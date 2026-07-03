@@ -6,14 +6,14 @@ const businessConfig = {
   whatsappDisplay: "+91 89399 21908",
   whatsappUrl: "https://wa.me/918939921908",
   upiId: "ksanjay0012006@okhdfcbank",
-  showUpiId: true,
+  showUpiId: false,
   advancePercentage: "50%",
   balancePercentage: "50%",
   brandName: "SanzzDream Solutions",
   shortName: "SDS",
   tagline: "Engineering Your Digital Vision.",
   experienceLine:
-    "Built by a technical founder and supported by a growing execution network across creative, data, and frontend delivery."
+    "Built by a technical founder and supported by a growing execution network across creative, data, office, and frontend delivery."
 };
 
 function createWhatsAppUrl(message) {
@@ -25,9 +25,8 @@ function createWhatsAppUrl(message) {
 }
 
 const navLinks = [
-  ["Home", "#home"],
-  ["Services", "#services"],
   ["Work", "#work"],
+  ["Services", "#services"],
   ["Packages", "#packages"],
   ["Process", "#process"],
   ["FAQ", "#faq"],
@@ -40,6 +39,25 @@ const heroTrustSignals = [
   "Clear revision policy",
   "Delivery tracking",
   "Preview before final handoff"
+];
+
+const launchStatusChips = [
+  "Tally Intake",
+  "WhatsApp Contact",
+  "50% Advance",
+  "Notion Tracking",
+  "Final Delivery"
+];
+
+const serviceStack = ["Video", "Photo", "Data", "Frontend", "PPT", "Excel", "Word"];
+
+const heroShowcaseItems = [
+  ["Video timeline", "videoMock"],
+  ["PPT deck", "pptMock"],
+  ["Excel dashboard", "excelMock"],
+  ["Frontend website", "websiteMock"],
+  ["Word report", "wordMock"],
+  ["Photo before/after", "photoMock"]
 ];
 
 const launchFlowSteps = ["Requirement", "Quote", "Advance", "Work", "Review", "Delivery"];
@@ -159,6 +177,67 @@ const services = [
     ],
     cta: "Request Website",
     whatsapp: "Hi SDS, I need a frontend website/page. My requirement is:"
+  },
+  {
+    id: "powerpoint",
+    icon: "presentation",
+    title: "PowerPoint Presentations",
+    startingPrice: "\u20B9299+",
+    delivery: "1-3 days for simple to standard presentation decks.",
+    who: "Students, seminar teams, founders, small businesses, and project/report users.",
+    gets:
+      "Professional PPT decks for college projects, business pitches, seminars, reports, and startup presentations.",
+    revisions: ["Basic: 1 revision", "Standard: 2 revisions", "Premium: 3 revisions"],
+    useCases: [
+      "College project PPT",
+      "Business pitch deck",
+      "Seminar presentation",
+      "Clean slide redesign",
+      "Infographic slides"
+    ],
+    cta: "Request PPT Deck",
+    whatsapp: "Hi SDS, I need a PowerPoint presentation. My requirement is:"
+  },
+  {
+    id: "excel",
+    icon: "spreadsheet",
+    title: "Excel Work",
+    startingPrice: "\u20B9299+",
+    delivery: "1-3 days depending on formulas, cleanup, and dashboard complexity.",
+    who: "Students, small businesses, academic users, founders, and reporting teams.",
+    gets:
+      "Excel sheets, dashboards, reports, formulas, formatting, and data organization.",
+    revisions: ["Basic: 1 revision", "Standard: 2 revisions", "Premium: 3 revisions"],
+    useCases: [
+      "Excel dashboards",
+      "Data cleaning",
+      "Formulas",
+      "Charts",
+      "Reports",
+      "Formatting"
+    ],
+    cta: "Request Excel Work",
+    whatsapp: "Hi SDS, I need Excel work. My requirement is:"
+  },
+  {
+    id: "word",
+    icon: "document",
+    title: "Word Documents",
+    startingPrice: "\u20B9199+",
+    delivery: "1-2 days for formatting and standard documents.",
+    who: "Students, job seekers, project teams, academic users, and small businesses.",
+    gets:
+      "Professional Word documents for reports, resumes, project documentation, assignments, and formatted submissions.",
+    revisions: ["Basic: 1 revision", "Standard: 2 revisions", "Premium: 3 revisions"],
+    useCases: [
+      "Project reports",
+      "Resume formatting",
+      "Assignment formatting",
+      "Documentation",
+      "PDF export-ready files"
+    ],
+    cta: "Request Document",
+    whatsapp: "Hi SDS, I need Word document formatting. My requirement is:"
   }
 ];
 
@@ -206,17 +285,20 @@ const packageExamples = [
   ["Video Editing", "Basic: 1 short reel", "Standard: reel with captions + transitions", "Premium: reel package with hook, captions, effects, thumbnail"],
   ["Photo Editing", "Basic: 1 simple image edit", "Standard: poster/thumbnail/product edit", "Premium: multi-image or brand-ready visual pack"],
   ["Data Analytics", "Basic: simple Excel cleanup/report", "Standard: Excel or Power BI dashboard", "Premium: dashboard + insights + documentation"],
-  ["Frontend Development", "Basic: one-section/one-page static page", "Standard: portfolio or landing page", "Premium: multi-section responsive business website"]
+  ["Frontend Development", "Basic: one-section/one-page static page", "Standard: portfolio or landing page", "Premium: multi-section responsive business website"],
+  ["PowerPoint", "Basic: simple 5-7 slide deck", "Standard: clean 10-15 slide presentation", "Premium: pitch-ready deck with visuals and infographics"],
+  ["Excel", "Basic: formatting or simple sheet cleanup", "Standard: formulas, charts, and organized report", "Premium: dashboard with insights and documentation"],
+  ["Word", "Basic: document formatting", "Standard: project report or resume formatting", "Premium: full structured report with clean layout and PDF export"]
 ];
 
 const processSteps = [
   ["Submit Requirement", "Client shares service need, deadline, budget range, files, and reference links."],
   ["Receive Quote", "SDS reviews scope and sends price, delivery time, and revision limit."],
   ["Pay 50% Advance", "Work begins after manual UPI/bank confirmation."],
-  ["Preview Work", "Client receives draft or preview output for review."],
-  ["Request Revisions", "Allowed revisions are handled based on the selected package."],
+  ["Work Begins", "Editing, design, analytics, office, or frontend execution starts with tracked scope."],
+  ["Preview & Revisions", "Client receives a draft and included revisions are handled based on package."],
   ["Pay Balance", "Client pays the remaining 50% after approval."],
-  ["Receive Final Files", "Final files/source/editable assets are delivered based on agreement."]
+  ["Final Delivery", "Final files/source/editable assets are delivered based on agreement."]
 ];
 
 const revisionPolicies = [
@@ -251,9 +333,7 @@ const notionColumns = [
   "Advance Paid",
   "Assigned",
   "In Progress",
-  "Internal Review",
-  "Client Review",
-  "Final Payment Pending",
+  "Review",
   "Delivered"
 ];
 
@@ -273,7 +353,7 @@ const notionFields = [
 
 const notionPreviewCards = [
   ["SDS-26-001", "Video Edit", "In Progress"],
-  ["SDS-26-002", "Dashboard", "Internal Review"],
+  ["SDS-26-002", "Excel Dashboard", "Review"],
   ["SDS-26-003", "Landing Page", "Quoted"]
 ];
 
@@ -286,39 +366,46 @@ const portfolioDemos = [
     description: "Reel-style timeline preview with hook frame, caption blocks, and export-ready pacing."
   },
   {
-    title: "Photo Editing Demo",
-    category: "Photo Editing",
+    title: "PowerPoint Pitch Deck Demo",
+    category: "PowerPoint Presentations",
     type: "Mock / Demo",
-    visual: "photoMock",
-    description: "Before/after product cleanup layout for thumbnails, posters, and social visuals."
+    visual: "pptMock",
+    description: "Clean presentation system for college, business, and startup decks."
   },
   {
-    title: "Data Analytics Demo",
-    category: "Data Analytics",
+    title: "Excel Dashboard Demo",
+    category: "Excel Work",
     type: "Mock / Demo",
-    visual: "dashboardMock",
-    description: "Dashboard-style preview with metric cards, chart blocks, and insight layout."
+    visual: "excelMock",
+    description: "Dashboard preview for reports, data cleaning, and business insights."
   },
   {
     title: "Frontend Landing Page Demo",
     category: "Frontend Development",
     type: "Mock / Demo",
     visual: "websiteMock",
-    description: "Responsive landing page preview for startups, local businesses, and service brands."
+    description: "Responsive landing page preview for startups and local businesses."
   },
   {
-    title: "Student Portfolio Demo",
-    category: "Frontend Development",
+    title: "Photo Editing Demo",
+    category: "Photo Editing",
     type: "Mock / Demo",
-    visual: "portfolioMock",
-    description: "Clean personal portfolio structure for internships, projects, and freelance identity."
+    visual: "photoMock",
+    description: "Product/photo cleanup, poster, thumbnail, and social visuals."
+  },
+  {
+    title: "Word Report Formatting Demo",
+    category: "Word Documents",
+    type: "Mock / Demo",
+    visual: "wordMock",
+    description: "Structured report, assignment, resume, and documentation formatting."
   },
   {
     title: "Social Media Post Demo",
     category: "Photo Editing",
     type: "Mock / Demo",
     visual: "socialMock",
-    description: "Poster-style content preview for creator announcements and small business campaigns."
+    description: "Content visual for creators, events, and announcements."
   }
 ];
 
@@ -326,7 +413,10 @@ const timelineEstimates = [
   ["Photo Editing", "1-2 days for simple edits."],
   ["Video Editing", "1-3 days for reels, shorts, and basic promos."],
   ["Data Analytics", "2-5 days depending on data size and dashboard complexity."],
-  ["Frontend Development", "3-7 days depending on page count and design complexity."]
+  ["Frontend Development", "3-7 days depending on page count and design complexity."],
+  ["PowerPoint Presentations", "1-3 days depending on slide count and visual polish."],
+  ["Excel Work", "1-3 days depending on formulas, cleanup, and report complexity."],
+  ["Word Documents", "1-2 days for formatting and standard documents."]
 ];
 
 const whyChooseItems = [
@@ -337,7 +427,7 @@ const whyChooseItems = [
   ["Clear Revision Policy", "Each package has defined revision limits."],
   ["Founder-Led Quality Check", "Work is reviewed before client handoff."],
   ["Manual MVP Now, Automation Later", "Simple workflow today, full client portal planned for future."],
-  ["Creative + Technical Mix", "Video, photo, data, and frontend services under one execution brand."]
+  ["Creative + Technical Mix", "Video, photo, data, office, and frontend services under one execution brand."]
 ];
 
 const feedbackPlaceholders = [
@@ -366,7 +456,7 @@ const quoteChecklist = [
 ];
 
 const faqs = [
-  ["What services does SDS currently offer?", "SDS currently offers video editing, photo editing, data analytics, and frontend development."],
+  ["What services does SDS currently offer?", "SDS currently offers video editing, photo editing, data analytics, frontend development, PowerPoint presentations, Excel work, and Word documents."],
   ["How do I start a project?", "Click Start a Project, fill the Tally form, and share your requirement. SDS will review it and send a quote."],
   ["Can I contact through WhatsApp?", "Yes. Use the WhatsApp button to send your requirement directly."],
   ["Do I need to pay advance?", "Yes. SDS starts work after 50% advance confirmation."],

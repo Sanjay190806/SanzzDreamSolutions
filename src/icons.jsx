@@ -1,3 +1,5 @@
+import React from "react";
+
 const SvgIcon = ({ name, className = "h-6 w-6" }) => {
   const props = {
     className,
@@ -42,6 +44,33 @@ const SvgIcon = ({ name, className = "h-6 w-6" }) => {
         <path d="m13 8-2 8" />
       </svg>
     ),
+    presentation: (
+      <svg {...props}>
+        <rect x="4" y="4" width="16" height="11" rx="2" />
+        <path d="M12 15v5" />
+        <path d="m8 20 4-3 4 3" />
+        <path d="M8 9h4" />
+        <path d="M8 12h8" />
+      </svg>
+    ),
+    spreadsheet: (
+      <svg {...props}>
+        <rect x="4" y="3" width="16" height="18" rx="2" />
+        <path d="M4 8h16" />
+        <path d="M4 13h16" />
+        <path d="M9 8v13" />
+        <path d="M15 8v13" />
+      </svg>
+    ),
+    document: (
+      <svg {...props}>
+        <path d="M7 3h7l4 4v14H7z" />
+        <path d="M14 3v5h5" />
+        <path d="M9 12h6" />
+        <path d="M9 16h6" />
+        <path d="M9 19h4" />
+      </svg>
+    ),
     check: (
       <svg {...props}>
         <path d="m20 6-11 11-5-5" />
@@ -83,8 +112,28 @@ const SvgIcon = ({ name, className = "h-6 w-6" }) => {
       <svg {...props}>
         <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.8 8.8 0 0 1-3.8-.9L3 20l1.1-4.8A8.2 8.2 0 1 1 21 11.5z" />
       </svg>
+    ),
+    sun: (
+      <svg {...props}>
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2" />
+        <path d="M12 20v2" />
+        <path d="M4.93 4.93l1.41 1.41" />
+        <path d="M17.66 17.66l1.41 1.41" />
+        <path d="M2 12h2" />
+        <path d="M20 12h2" />
+        <path d="M6.34 17.66l-1.41 1.41" />
+        <path d="M19.07 4.93l-1.41 1.41" />
+      </svg>
+    ),
+    moon: (
+      <svg {...props}>
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+      </svg>
     )
   };
 
   return icons[name] || icons.spark;
 };
+
+export default SvgIcon;

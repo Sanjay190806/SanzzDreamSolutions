@@ -144,3 +144,27 @@ Cancellation terms depend on how much work has already been completed. Advance m
 Do not claim fake years of experience, fake client counts, fake testimonials, or big-brand trust. Use truthful wording:
 
 `SDS is built by a technical founder and supported by a growing execution network across creative, data, and frontend delivery.`
+
+## 16. Phase 1 Website Features
+
+The website contains the following key interactive elements to improve conversion rates and trust:
+
+1. **Price Calculator**: Interactive frontend module letting users configure requirements across all 7 services.
+2. **WhatsApp Quote Generator**: Encodes selected options into a prefilled quote request message.
+3. **Demo Work Showcase**: Unique graphic previews for each service block, clearly marked "Mock / Demo".
+4. **Payment Confirmation Form CTA**: Action item to submit manual transaction logs (UTR / Screenshot) to trigger admin check.
+5. **Tally Intake Checklist**: Guided form instructions shown beforehand to help clients prepare required details.
+
+## 17. Payment Confirmation Workflow
+
+To track manual payments efficiently during the MVP stage, the following flow is used:
+1. **SDS sends quote**: After discussing requirements on WhatsApp.
+2. **Client pays 50% advance**: Through manual bank transfer or UPI.
+3. **Client submits payment confirmation**: Direct submission through the external confirmation form (Tally/Google Form) or WhatsApp.
+4. **SDS verifies payment manually**: Checking bank statement or UPI app.
+5. **SDS updates Notion status to Advance Paid**: In the master project board.
+6. **SDS assigns work**: Project moves to "Assigned" or "In Progress".
+
+## 18. Quote Calculator Rule
+
+The website estimate is not final. Final quote is confirmed only after SDS reviews the actual requirements, files, deadlines, and complexity.

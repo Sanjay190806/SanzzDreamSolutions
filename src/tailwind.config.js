@@ -2,31 +2,36 @@ tailwind.config = {
   theme: {
     extend: {
       fontFamily: {
-        syne: ["Syne", "sans-serif"],
-        dmsans: ["DM Sans", "Inter", "sans-serif"]
+        syne: ["Space Grotesk", "Syne", "sans-serif"],
+        dmsans: ["Inter", "DM Sans", "sans-serif"]
       },
       colors: {
         brandBlue: {
-          DEFAULT: "#00a8ff",
-          deep: "#0070f3",
-          soft: "#e0f5ff"
+          DEFAULT: "#0077ff",
+          deep: "#005bd1",
+          soft: "#e8f3ff"
         },
         brandGold: {
-          DEFAULT: "#d4af37",
-          soft: "#fff7d6",
-          deep: "#9a7415"
+          DEFAULT: "#c9a227",
+          soft: "#fff7dc",
+          deep: "#b88a00"
         },
-        brandNavy: "#0a1428",
-        brandMuted: "#475569",
-        brandSection: "#f8fafc",
-        brandBorder: "#e2e8f0",
+        brandCyan: "#38bdf8",
+        brandBg: "#f7f7f4",
+        brandNavy: "#0b0d12",
+        brandMuted: "#5f6673",
+        brandSection: "#f7f7f4",
+        brandBorder: "#e4e4df",
+        charcoalCTA: "#111318",
         successGreen: "#16a34a"
       },
       boxShadow: {
-        soft: "0 18px 50px rgba(10, 20, 40, 0.08)",
-        lift: "0 24px 70px rgba(10, 20, 40, 0.12)",
+        subtle: "0 12px 40px rgba(11, 13, 18, 0.06)",
+        soft: "0 18px 50px rgba(11, 13, 18, 0.08)",
+        lift: "0 24px 70px rgba(11, 13, 18, 0.12)",
         blueGlow: "0 18px 42px rgba(0, 168, 255, 0.22)",
-        goldGlow: "0 16px 42px rgba(212, 175, 55, 0.16)"
+        goldGlow: "0 16px 42px rgba(184, 138, 0, 0.16)",
+        charcoal: "0 18px 48px rgba(17, 19, 24, 0.2)"
       }
     }
   }

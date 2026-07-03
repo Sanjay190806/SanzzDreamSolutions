@@ -1,6 +1,6 @@
-const { useEffect, useRef, useState } = React;
+import { useEffect, useRef } from "react";
 
-function useReveal() {
+export function useReveal() {
   const ref = useRef(null);
 
   useEffect(() => {
