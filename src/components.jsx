@@ -466,7 +466,7 @@ export const LaunchScreen = ({ onEnter, exiting }) => {
   );
 };
 
-export const Navbar = ({ theme, toggleTheme }) => {
+export const Navbar = ({ theme, toggleTheme, onOpenRateCard }) => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -480,7 +480,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
     <header className={`navbar-header ${scrolled ? "is-scrolled" : ""}`}>
       <nav className="navbar-inner">
         <a href="#home" className="navbar-brand" aria-label="SanzzDream Solutions home">
-          <span className="navbar-logo">S</span>
+          <img src="/logo.jpg" alt="SanzzDream Solutions Logo" className="navbar-logo-img" />
           <span className="navbar-brand-name">SanzzDream Solutions</span>
         </a>
 
@@ -488,6 +488,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
           {navLinks.map(([label, href]) => (
             <a key={label} href={href} className="navbar-link">{label}</a>
           ))}
+          <button type="button" onClick={onOpenRateCard} className="navbar-link font-syne font-bold text-brandGold bg-transparent border-0 cursor-pointer p-0">Rate Card</button>
         </div>
 
         <div className="flex items-center gap-3">
@@ -520,6 +521,16 @@ export const Navbar = ({ theme, toggleTheme }) => {
         {navLinks.map(([label, href]) => (
           <a key={label} href={href} onClick={() => setOpen(false)} className="navbar-mobile-link">{label}</a>
         ))}
+        <button
+          type="button"
+          onClick={() => {
+            setOpen(false);
+            onOpenRateCard();
+          }}
+          className="navbar-mobile-link text-brandGold font-bold text-left w-full bg-transparent border-0 cursor-pointer px-4 py-3 block"
+        >
+          View Rate Card
+        </button>
         <div className="flex items-center justify-between px-4 py-3 border-t border-white/5 mt-2">
           <span className="font-syne text-xs font-bold uppercase tracking-wider navbar-theme-mobile-label">Theme</span>
           <button
@@ -538,7 +549,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
 };
 
 /* ─── HERO ───────────────────────────────────────────────────── */
-export const Hero = () => {
+export const Hero = ({ onOpenRateCard }) => {
   const typeText = useTypewriter(["Real Delivery.", "Fast Execution.", "Clear Quotes.", "Zero Guesswork."]);
 
   return (
@@ -587,6 +598,9 @@ export const Hero = () => {
               <SvgIcon name="chat" className="h-4 w-4" />
               WhatsApp SDS
             </WhatsAppLink>
+            <button type="button" onClick={onOpenRateCard} className="btn-secondary border-brandGold/40 hover:border-brandGold text-brandGold bg-transparent cursor-pointer">
+              View Rate Card
+            </button>
             <a href="#work" className="btn-ghost">
               View Work
             </a>
@@ -754,7 +768,7 @@ export const Services = () => {
 };
 
 /* ─── ESTIMATE YOUR PROJECT COST (FEATURE 1 & 2) ──────────────── */
-export const QuoteCalculator = () => {
+export const QuoteCalculator = ({ onOpenRateCard }) => {
   const [selectedServiceId, setSelectedServiceId] = useState("video");
   const [selectedPkg, setSelectedPkg] = useState("Standard");
   const [isExpress, setIsExpress] = useState(false);
@@ -996,7 +1010,7 @@ Please confirm the final quote.`;
             </div>
 
             <p className="font-dmsans text-[11px] text-white/40 leading-relaxed mb-6">
-              * This is an estimate. Final quote depends on scope, deadline, file quality, complexity, and revision count.
+              * This is an estimate. Final quote depends on scope, deadline, file quality, complexity, and revision count. Review the <button type="button" onClick={onOpenRateCard} className="text-[#0077ff] underline hover:text-white transition-colors bg-transparent border-0 p-0 font-semibold cursor-pointer">Official Rate Card</button> for details.
             </p>
 
             <div className="grid gap-3">
@@ -1448,12 +1462,15 @@ export const StickyWhatsApp = () => {
 };
 
 /* ─── FOOTER ─────────────────────────────────────────────────── */
-export const Footer = () => (
+export const Footer = ({ onOpenRateCard }) => (
   <footer className="footer border-t border-white/5 bg-[#06080c]">
     <div className="section-shell">
       <div className="footer-grid">
         <div>
-          <p className="footer-brand text-white">SanzzDream Solutions</p>
+          <div className="flex items-center gap-3 mb-4">
+            <img src="/logo.jpg" alt="SanzzDream Solutions Logo" className="footer-logo-img" />
+            <span className="footer-brand text-white font-syne font-bold text-xl">SanzzDream Solutions</span>
+          </div>
           <p className="footer-tagline text-white/70">{businessConfig.tagline}</p>
           <p className="footer-desc text-white/40">
             Creative, data, office, and frontend execution studio for students, creators, startups, and local businesses.
@@ -1465,6 +1482,7 @@ export const Footer = () => (
             {footerLinks.map(([label, href]) => (
               <a key={label} href={href} className="footer-link text-white/50 hover:text-white">{label}</a>
             ))}
+            <button type="button" onClick={onOpenRateCard} className="footer-link text-left text-white/50 hover:text-white bg-transparent border-0 p-0 cursor-pointer block">Rate Card</button>
           </div>
         </div>
         <div>
@@ -1482,3 +1500,111 @@ export const Footer = () => (
     </div>
   </footer>
 );
+
+/* ─── RATE CARD MODAL LIGHTBOX ───────────────────────────────── */
+export const RateCardModal = ({ isOpen, onClose }) => {
+  const [activePageIndex, setActivePageIndex] = useState(0);
+
+  const rateCardPages = [
+    { id: 1, title: "Terms & Conditions", src: "/rate-card-1.png" },
+    { id: 2, title: "Pillar 1: Data Intelligence & Analytics", src: "/rate-card-2.png" },
+    { id: 3, title: "Pillar 3: Digital Presence & Creative Studio", src: "/rate-card-3.png" },
+    { id: 4, title: "Pillar 2: IoT & Embedded Engineering", src: "/rate-card-4.png" }
+  ];
+
+  if (!isOpen) return null;
+
+  const activePage = rateCardPages[activePageIndex];
+
+  const handleNext = () => {
+    setActivePageIndex((prev) => (prev + 1) % rateCardPages.length);
+  };
+
+  const handlePrev = () => {
+    setActivePageIndex((prev) => (prev - 1 + rateCardPages.length) % rateCardPages.length);
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#05060a]/90 backdrop-blur-md animate-fadeIn">
+      {/* Click outside to close */}
+      <div className="absolute inset-0" onClick={onClose} />
+
+      <div className="relative w-full max-w-lg bg-[#0b0d12] border border-white/10 rounded-[2rem] p-6 shadow-2xl z-10 flex flex-col max-h-[90vh]">
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+          <div>
+            <h3 className="font-syne text-lg font-bold text-white">Official Rate Card</h3>
+            <p className="font-dmsans text-xs text-white/50 mt-1">{activePage.title}</p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="text-white/60 hover:text-white transition-colors bg-white/5 hover:bg-white/10 h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Active Page Image View */}
+        <div className="relative flex-1 overflow-hidden rounded-xl border border-white/5 bg-[#111318] flex items-center justify-center min-h-[320px]">
+          <img
+            src={activePage.src}
+            alt={activePage.title}
+            className="max-h-[50vh] max-w-full object-contain"
+          />
+
+          {/* Navigation Arrows */}
+          <button
+            type="button"
+            onClick={handlePrev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#05060c]/80 hover:bg-[#0077ff] text-white rounded-full h-10 w-10 flex items-center justify-center shadow-lg transition-colors border border-white/10 font-bold"
+          >
+            ←
+          </button>
+          <button
+            type="button"
+            onClick={handleNext}
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#05060c]/80 hover:bg-[#0077ff] text-white rounded-full h-10 w-10 flex items-center justify-center shadow-lg transition-colors border border-white/10 font-bold"
+          >
+            →
+          </button>
+        </div>
+
+        {/* Thumbnail Previews */}
+        <div className="grid grid-cols-4 gap-2 mt-4">
+          {rateCardPages.map((page, idx) => (
+            <button
+              key={page.id}
+              type="button"
+              onClick={() => setActivePageIndex(idx)}
+              className={`relative rounded-lg overflow-hidden border transition-all ${activePageIndex === idx ? "border-[#0077ff] scale-105" : "border-white/10 opacity-60 hover:opacity-100"}`}
+            >
+              <img src={page.src} alt={page.title} className="h-10 w-full object-cover" />
+              <div className="absolute inset-0 bg-[#05060a]/30" />
+            </button>
+          ))}
+        </div>
+
+        {/* Footer Actions */}
+        <div className="flex gap-3 mt-5 pt-4 border-t border-white/10">
+          <a
+            href={activePage.src}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center py-2.5 font-syne text-xs font-bold uppercase tracking-wider text-brandNavy bg-white hover:bg-white/95 rounded-full shadow transition-colors"
+          >
+            Open in New Tab
+          </a>
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex-1 text-center py-2.5 font-syne text-xs font-bold uppercase tracking-wider text-white bg-white/5 hover:bg-white/10 rounded-full border border-white/10 transition-colors"
+          >
+            Close View
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
